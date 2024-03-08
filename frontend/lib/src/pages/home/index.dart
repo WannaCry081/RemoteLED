@@ -46,10 +46,11 @@ class _HomeViewState extends State<HomeView> {
     return data;
   }
 
-  Future<void> updateData() async {
+  Future<void> updateData(bool data) async {
     await http.patch(
       Uri.parse(url),
-      body : json.encode({ "led" : !status })
+      body : json.encode({ "led" : data })
     );
   }
+
 }
