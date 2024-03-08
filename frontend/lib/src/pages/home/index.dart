@@ -17,6 +17,19 @@ class _HomeViewState extends State<HomeView> {
   bool status = false;
 
   @override
+  void initState(){
+    super.initState();
+    _init();
+  }
+
+  Future<void> _init() async {
+    final value = await fetchData();
+    setState((){
+      status = value;
+    });
+  }
+
+  @override
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.deepPurple[100],
