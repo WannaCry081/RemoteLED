@@ -53,4 +53,11 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
+  Future<void> toggleData() async {
+    bool value = !(await fetchData());
+    await updateData(value);
+    setState(() {
+      status = value;
+    });
+  }
 }
