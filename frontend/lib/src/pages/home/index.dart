@@ -1,6 +1,6 @@
 import "dart:convert";
 import "package:flutter/material.dart";
-import "package:http/http.dart";
+import "package:http/http.dart" as http;
 
 
 class HomeView extends StatefulWidget {
@@ -11,6 +11,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+
+  String url = "https://192.168.100.24:8000/api/v1/light/1/";
+
+  bool status = false;
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -33,5 +38,14 @@ class _HomeViewState extends State<HomeView> {
         )
       )
     );
+  }
+
+  Future<void> fetchData() async {
+    final response = await http.get(Uri.parse(url));
+    final bool data = json.decode(response.body)["led"] as bool;
+
+    setState((){
+      status = data;
+    });    
   }
 }
