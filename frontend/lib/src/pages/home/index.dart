@@ -40,13 +40,10 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Future<void> fetchData() async {
+  Future<bool> fetchData() async {
     final response = await http.get(Uri.parse(url));
-    final bool data = json.decode(response.body)["led"] as bool;
-
-    setState((){
-      status = data;
-    });    
+    final data = json.decode(response.body)["led"] as bool;
+    return data;
   }
 
   Future<void> updateData() async {
