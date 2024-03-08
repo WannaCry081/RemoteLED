@@ -41,11 +41,13 @@ class _HomeViewState extends State<HomeView> {
         child : Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children : [
-            Text("LED Status: "),
+            Text("LED Status: $status"),
             const SizedBox(height : 10),
             ElevatedButton(
               child : const Text("LED"),
-              onPressed: (){},
+              onPressed: () {
+                toggleData();
+              },
             )
           ]
         )
