@@ -12,7 +12,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
 
-  String url = "https://192.168.100.24:8000/api/v1/light/1/";
+  String url = "http://192.168.100.24:8000/api/v1/light/1/";
 
   bool status = false;
 
@@ -64,6 +64,9 @@ class _HomeViewState extends State<HomeView> {
   Future<void> updateData(bool data) async {
     await http.patch(
       Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json', // Set content type to JSON
+      },
       body : json.encode({ "led" : data })
     );
   }
