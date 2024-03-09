@@ -9,3 +9,8 @@ ESPWifi::ESPWifi(const String& ssid, const String& password) {
 bool ESPWifi::isConnect() {
     return WiFi.status() == WL_CONNECTED;
 }
+
+
+bool ESPWifi::isSuccess() {
+    return counter++ < 20;
+}
