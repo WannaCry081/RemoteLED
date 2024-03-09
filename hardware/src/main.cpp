@@ -22,7 +22,10 @@ void setup(){
     }
   }
 
-  pinMode(LED_PIN, OUTPUT);
+  if (wifi.isConnect()) {
+    wifi.displayStatus();
+    pinMode(LED_PIN, OUTPUT);
+  }
 } 
 
 
