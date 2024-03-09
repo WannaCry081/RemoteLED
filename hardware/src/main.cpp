@@ -6,11 +6,11 @@
 const String ssid = "waraykawifi";
 const String password = "KaRAOTMO##!";
 
+ESPWifi wifi(ssid, password);
 
 void setup(){
 
   Serial.begin(115200);
-  ESPWifi wifi(ssid, password);
 
   Serial.printf("Connecting to %s...", ssid);
   while (!wifi.isConnect()) {
@@ -31,7 +31,7 @@ void setup(){
 
 void loop(){
 
-
-  digitalWrite(LED_PIN, HIGH);
-
+  if (wifi.isConnect()){
+    digitalWrite(LED_PIN, HIGH);
+  }
 }
