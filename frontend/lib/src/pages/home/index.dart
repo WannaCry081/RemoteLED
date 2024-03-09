@@ -35,16 +35,33 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.deepPurple[100],
       appBar : AppBar(
         backgroundColor: Colors.deepPurple[400],
-        title: const Text("LED Controller"),
+        title: const Text(
+          "LED Controller", 
+          style : TextStyle(
+            color : Colors.white,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1.5
+          )),
       ),
       body : Center(
         child : Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children : [
-            Text("LED Status: $status"),
-            const SizedBox(height : 10),
+            Icon(
+              Icons.lightbulb,
+              size : 100,
+              color : (status) ? Colors.yellow : Colors.black
+            ),
+            const SizedBox(height : 15),
             ElevatedButton(
-              child : const Text("LED"),
+              child : const Text(
+                "LED",
+                style : TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1.5
+                )
+              ),
               onPressed: () {
                 toggleData();
               },
