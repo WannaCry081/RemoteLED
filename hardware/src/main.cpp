@@ -5,9 +5,9 @@
 #define LED_PIN 12
 
 
-const String ssid = "WIFI_SSID_HERE";
-const String password = "WIFI_PASSWORD_HERE";
 bool status = false;
+const String WIFI_SSID = "WIFI_SSID";
+const String WIFI_PASSWORD = "WIFI_PASSWORD";
 
 
 void getLightStatus();
@@ -15,10 +15,10 @@ void getLightStatus();
 void setup(){
 
   Serial.begin(115200);
-  ESPWifi wifi(ssid, password);
+  ESPWifi wifi(WIFI_SSID, WIFI_PASSWORD);
 
 
-  Serial.printf("Connecting to %s...", ssid);
+  Serial.printf("Connecting to %s...", WIFI_SSID);
   while (!wifi.isConnect()) {
     Serial.print(".");
     delay(1000);
@@ -53,7 +53,7 @@ void getLightStatus() {
   HTTPClient http;
 
   // Your server endpoint for GET request
-  String url = "http://IP_ADDRESS_HERE/api/v1/light/1/";
+  String url = "http://IP_ADDRESS:PORT/api/v1/light/1/";
 
   // Send GET request
   http.begin(url);
