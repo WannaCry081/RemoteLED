@@ -2,6 +2,10 @@
 #define ESPWIFI_HPP
 
 #include <Arduino.h>
+#include <WiFi.h>
+#include <LittleFS.h>
+#include <Update.h>
+#include <SD.h>
 
 
 class ESPWifi {
