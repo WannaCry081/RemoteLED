@@ -12,7 +12,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
 
-  String url = "http://192.168.100.24:8000/api/v1/light/1/";
+  String url = "http://IP_ADDRESS_HERE/api/v1/light/1/";
 
   bool status = false;
 

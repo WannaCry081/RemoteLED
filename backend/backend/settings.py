@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '192.168.100.24'
+    'IP_ADDRESS_HERE'
 ]
 
 
@@ -131,5 +131,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://192.168.100.24:8000"
+    "https://IP_ADDRESS_HERE:8000"
 ]

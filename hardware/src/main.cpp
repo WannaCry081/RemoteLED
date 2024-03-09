@@ -5,8 +5,8 @@
 #define LED_PIN 12
 
 
-const String ssid = "waraykawifi";
-const String password = "KaRAOTMO##!";
+const String ssid = "WIFI_SSID_HERE";
+const String password = "WIFI_PASSWORD_HERE";
 bool status = false;
 
 
@@ -53,7 +53,7 @@ void getLightStatus() {
   HTTPClient http;
 
   // Your server endpoint for GET request
-  String url = "http://192.168.100.24:8000/api/v1/light/1/";
+  String url = "http://IP_ADDRESS_HERE/api/v1/light/1/";
 
   // Send GET request
   http.begin(url);
