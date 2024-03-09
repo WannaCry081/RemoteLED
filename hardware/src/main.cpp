@@ -10,13 +10,13 @@ const String password = "KaRAOTMO##!";
 bool status = false;
 
 
-ESPWifi wifi(ssid, password);
-
 void getLightStatus();
 
 void setup(){
 
   Serial.begin(115200);
+  ESPWifi wifi(ssid, password);
+
 
   Serial.printf("Connecting to %s...", ssid);
   while (!wifi.isConnect()) {
@@ -29,6 +29,7 @@ void setup(){
   }
 
   if (wifi.isConnect()) {
+    Serial.println("");
     wifi.displayStatus();
     pinMode(LED_PIN, OUTPUT);
   }
@@ -37,7 +38,9 @@ void setup(){
 
 void loop(){
 
-  if (wifi.isConnect()){
+  if (WiFi.status() == WL_CONNECTED){
+    getLightStatus();
+
     byte power = (status) ? HIGH : LOW;
     digitalWrite(LED_PIN, power);
   }
