@@ -17,32 +17,37 @@ Remote LED Controller is an IoT-based project that provides a mobile app interfa
 ### Setting up .env file [IP_ADDRESS, PORT]
 1. Create a `.env` file in the project root.
 2. Add the following variables:
-   ```
-   IP_ADDRESS=<your_ip_address>
-   PORT=<your_port_number>
-   ```
+    ```
+    IP_ADDRESS=<your_ip_address>
+    PORT=<your_port_number>
+    ```
 
 ### Flutter
 1. Make sure you have Flutter installed. If not, [install Flutter](https://flutter.dev/docs/get-started/install).
 2. Run the Flutter app:
-   ```bash
-   flutter run
-   ```
+    ```bash
+    flutter run
+    ```
 
 ### Django
-1. Set up migrations:
-   ```bash
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
-2. Create a superuser:
-   ```bash
-   python manage.py createsuperuser
-   ```
-3. Run the Django server:
-   ```bash
-   python manage.py runserver 0.0.0.0:8000
-   ```
+1. Activate Virtual Environment:
+    ```bash
+    pipenv shell
+    pipenv install 
+    ```
+2. Set up migrations:
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+3. Create a superuser:
+    ```bash
+    python manage.py createsuperuser
+    ```
+4. Run the Django server:
+    ```bash
+    python manage.py runserver 0.0.0.0:8000
+    ```
 
 ### PlatformIO
 1. Set up WiFi credentials in `src/main.cpp`:
