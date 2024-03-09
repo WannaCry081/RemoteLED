@@ -10,7 +10,8 @@ class ESPWifi {
 
     public:
         ESPWifi(const String& ssid, const String& password);
-        bool isConnected();
+        bool isConnect();
+        bool isSuccess();
 };
 
 #endif
