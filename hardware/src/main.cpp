@@ -12,7 +12,7 @@ bool status = false;
 
 ESPWifi wifi(ssid, password);
 
-void sendGETRequest();
+void getLightStatus();
 
 void setup(){
 
@@ -38,8 +38,11 @@ void setup(){
 void loop(){
 
   if (wifi.isConnect()){
-    digitalWrite(LED_PIN, HIGH);
+    byte power = (status) ? HIGH : LOW;
+    digitalWrite(LED_PIN, power);
   }
+
+  delay(500);
 }
 
 
