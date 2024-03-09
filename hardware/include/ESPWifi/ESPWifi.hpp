@@ -12,6 +12,7 @@ class ESPWifi {
         ESPWifi(const String& ssid, const String& password);
         bool isConnect();
         bool isSuccess();
+        void displayStatus();
 };
 
 #endif
