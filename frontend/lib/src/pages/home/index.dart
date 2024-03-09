@@ -1,6 +1,7 @@
 import "dart:convert";
 import "package:flutter/material.dart";
 import "package:http/http.dart" as http;
+import "package:flutter_dotenv/flutter_dotenv.dart";
 
 
 class HomeView extends StatefulWidget {
@@ -11,8 +12,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-
-  String url = "http://IP_ADDRESS_HERE/api/v1/light/1/";
 
   bool status = false;
 
@@ -73,12 +72,22 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Future<bool> fetchData() async {
+    String? ip_address = dotenv.env["IP_ADDRESS"] ?? "0.0.0.0";
+    String? port = dotenv.env["PORT"] ?? "8000";
+
+    String url = "http://$ip_address:$port/api/v1/light/1/";
+
     final response = await http.get(Uri.parse(url));
     final data = json.decode(response.body)["led"] as bool;
     return data;
   }
 
   Future<void> updateData(bool data) async {
+    String? ip_address = dotenv.env["IP_ADDRESS"] ?? "0.0.0.0";
+    String? port = dotenv.env["PORT"] ?? "8000";
+
+    String url = "http://$ip_address:$port/api/v1/light/1/";
+    
     await http.patch(
       Uri.parse(url),
       headers: {
